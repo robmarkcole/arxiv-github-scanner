@@ -1,5 +1,5 @@
 # streamlit-arxiv
-Streamlit app for querying the arxiv api. Filter results on validity of Github links and export to csv
+Streamlit app for querying the arxiv api. Filter results on validity of Github links, freshness and category, and save to csv. Links will be clickable if the csv is opened in the Mac Numbers application
 
 <p align="center">
 <img src="usage.png" width="900">
