@@ -10,6 +10,7 @@ import pandas as pd
 
 utc = pytz.UTC
 
+st.set_page_config(layout="wide")
 
 @st.cache()
 def get_results(query: str, max_results: int) -> list:
