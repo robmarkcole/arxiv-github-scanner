@@ -1,4 +1,5 @@
 GITHUB_URL_REGEX = r"https://github.com/[A-Za-z0-9\-\_]+\/[A-Za-z0-9\-\_]+"
+ZENODO_URL_REGEX = r"https://.*zenodo.*"
 DEFAULT_QUERY = "satellite"
 DATE_FORMAT = "%Y-%m-%d"
 COMPUTER_VISION = "cs.CV"
