@@ -1,5 +1,5 @@
 # streamlit-arxiv
-Streamlit app for querying the arxiv api. Optionally check abstracts for valid (i.e. live) Github links, and save results to csv. Links can be copy + pasted to the browser
+Streamlit app for querying the arxiv api and checking the abstracts for a valid (i.e. live) Github link.
 
 <p align="center">
 <img src="usage.png" width="900">
