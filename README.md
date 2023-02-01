@@ -1,7 +1,5 @@
 # streamlit-arxiv
-Streamlit app for querying the arxiv api. Optionally check abstracts for valid (i.e. live) Github (code) & Zenodo (dataset) links, and save results to csv.
-
-Search data table: search through data by clicking a table, using hotkeys (`⌘ Cmd + F` or `Ctrl + F`) to bring up the search bar, and using the search bar to filter data.
+Streamlit app for querying the arxiv api. Optionally check abstracts for valid (i.e. live) Github links, and save results to csv. Links can be copy + pasted to the browser
 
 <p align="center">
 <img src="usage.png" width="900">
