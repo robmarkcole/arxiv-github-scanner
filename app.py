@@ -57,11 +57,13 @@ query = st.sidebar.text_input("Term to search", value=const.DEFAULT_QUERY)
 max_results = st.sidebar.number_input(
     "Max search results", value=100, min_value=1, max_value=300000
 )
-check_for_github = st.sidebar.checkbox("Check for github link?", value=False)
-check_for_zenodo = st.sidebar.checkbox("Check for zenodo link?", value=False)
+check_for_github = st.sidebar.checkbox("Check for github link?", value=True)
 filter_on_computer_vision = st.sidebar.checkbox(
-    "Filter on computer vision?", value=False
+    "Query on computer vision (cs.CV)?", value=True
 )
+
+if filter_on_computer_vision:
+    query += f" AND cat:{const.COMPUTER_VISION}"
 
 # Get results
 results = get_results(query, max_results)
@@ -78,8 +80,6 @@ for result in results:
     }
     if check_for_github:
         data["github_url"] = get_valid_url(result.summary, const.GITHUB_URL_REGEX)
-    if check_for_zenodo:
-        data["zenodo_url"] = get_valid_url(result.summary, const.ZENODO_URL_REGEX)
     parsed_results.append(data)
 
 # Display results
@@ -90,17 +90,11 @@ if len(parsed_results) > 0:
     df["published"] = df["published"].dt.strftime(const.DATE_FORMAT)
     df["updated"] = df["updated"].dt.strftime(const.DATE_FORMAT)
 
-    if filter_on_computer_vision:
-        df = df[df["primary_category"] == const.COMPUTER_VISION]
-
     df.reset_index(drop=True, inplace=True)
     st.write(f"Number of results: {len(df)}")
     if check_for_github:
         num_github = df["github_url"].value_counts().get("none", 0)
         st.write(f"Number of results with github link: {len(df) - num_github}")
-    if check_for_zenodo:
-        num_zenodo = df["zenodo_url"].value_counts().get("none", 0)
-        st.write(f"Number of results with zenodo link: {len(df) - num_zenodo}")
 
     st.dataframe(df)
     csv = convert_df(df)
