@@ -1,5 +1,5 @@
 # streamlit-arxiv
-Streamlit app for querying the arxiv api and checking the abstracts for a valid (i.e. live) Github link.
+Streamlit app for querying the arxiv api and checking the abstracts for a valid (i.e. live) Github link. See the [Discussion on Streamlit forum]
 
 <p align="center">
 <img src="usage.png" width="900">
